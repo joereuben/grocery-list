@@ -1,23 +1,41 @@
+import React, { useState } from 'react'
+
 import logo from './logo.svg';
 import './App.css';
+import DisplayArea from './DisplayArea'
+import InputArea from './InputArea'
 
 function App() {
+
+  const [item, setItem] = useState("")
+  const [list, setList] = useState([])
+  const [alert, setAlert] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
+  const [alertMessage, setAlertMessage] = useState("")
+
+
+  function deleteItem(id) {
+    const newList = list.filter((item)=>{
+      return item.id !== id
+    })
+    setList(newList)
+  }
+
+  function deleteAll() {
+    setList([])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <div className="">
+        <div className="">
+          <span>{alertMessage}</span>
+        </div>
+        <div className="">
+          <h3>Grocery List</h3>
+          <InputArea/>
+          <DisplayArea/>
+        </div>
+      </div>
     </div>
   );
 }
