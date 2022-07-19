@@ -1,13 +1,21 @@
-import React from 'react'
+import React from "react";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
-export default function GroceryItem({item}) {
+export default function GroceryItem({ id, name, deleteItem, editItem }) {
   return (
-    <div>
-      <p>{item.name}</p>
+    <div className="grocery_item">
       <div>
-        <button>edit</button>
-        <button>delete</button>
+        <span>{name}</span>
+      </div>
+
+      <div>
+        <button className="action_btn edit" onClick={() => editItem(id)}>
+          <AiFillEdit />
+        </button>
+        <button className="action_btn del" onClick={() => deleteItem(id)}>
+          <AiFillDelete />
+        </button>
       </div>
     </div>
-  )
+  );
 }

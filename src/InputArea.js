@@ -1,17 +1,24 @@
-import React from 'react'
+import React from "react";
 
-export default function InputArea({updateText}) {
-    
-    const handleSubmit = (e)=>{
-        e.preventDefault()
-    }
+export default function InputArea({ text, updateText, addToList, isEditing }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addToList();
+  };
 
   return (
     <div>
-      <form action="" >
-        <input type="text" name="" id="" onChange={(e)=> updateText(e.target.value)} />
-        <button type="submit">Submit</button>
+      <form action="" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name=""
+          id=""
+          value={text}
+          onChange={(e) => updateText(e.target.value)}
+          placeholder="e.g. Fruits"
+        />
+        <button type="submit">{isEditing ? "Edit" : "Submit"}</button>
       </form>
     </div>
-  )
+  );
 }
