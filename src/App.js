@@ -86,7 +86,7 @@ function App() {
     <div className="container">
       <div className="block">
         <div className="">
-          <div className={`alert ${alert ? "added" : "removed"}`}>
+          <div className={`alert ${isAdded ? "added" : "removed"}`}>
             <span>{alert && alertMessage}</span>
           </div>
           <div className="">
