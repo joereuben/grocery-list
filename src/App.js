@@ -51,6 +51,8 @@ function App() {
   }
 
   function addToList() {
+    if(text === "") return
+    
     if (!isEditing) {
       const newItem = { id: uid(), name: text };
       setList([...list, newItem]);
