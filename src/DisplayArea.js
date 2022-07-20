@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import GroceryItem from "./GroceryItem";
+import { UserContext } from "./App";
 
 export default function DisplayArea({
-  groceryItems,
+  
   deleteItem,
   deleteAll,
   editItem,
 }) {
+  
+  const list = useContext(UserContext)
+
   return (
     <div>
-      {groceryItems.map((item) => {
+      {list.map((item) => {
         return (
           <GroceryItem
             key={item.id}

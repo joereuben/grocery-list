@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -8,6 +8,8 @@ import InputArea from "./InputArea";
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+
+export const UserContext = createContext()
 
 function App() {
   const [text, setText] = useState("");
@@ -51,6 +53,7 @@ function App() {
   }
 
   function addToList() {
+    if(text === "") return
     if (!isEditing) {
       const newItem = { id: uid(), name: text };
       setList([...list, newItem]);
@@ -83,30 +86,36 @@ function App() {
   }, [alert]);
 
   return (
-    <div className="container">
-      <div className="block">
-        <div className="">
-          <div className={`alert ${isAdded ? "added" : "removed"}`}>
-            <span>{alert && alertMessage}</span>
-          </div>
+    <UserContext.Provider value={list}>
+
+      <div className="container">
+        <div className="block">
           <div className="">
-            <h3>Grocery List</h3>
-            <InputArea
-              text={text}
-              updateText={updateText}
-              addToList={addToList}
-              isEditing={isEditing}
-            />
-            <DisplayArea
-              groceryItems={list}
-              deleteItem={deleteItem}
-              deleteAll={deleteAll}
-              editItem={editItem}
-            />
+            <div className={`alert ${isAdded ? "added" : "removed"}`}>
+              <span>{alert && alertMessage}</span>
+            </div>
+            <div className="">
+              <h3>Grocery List</h3>
+              <InputArea
+                text={text}
+                updateText={updateText}
+                addToList={addToList}
+                isEditing={isEditing}
+              />
+              <DisplayArea
+                
+                deleteItem={deleteItem}
+                deleteAll={deleteAll}
+                editItem={editItem}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      
+    </UserContext.Provider>
+
+    
   );
 }
 
