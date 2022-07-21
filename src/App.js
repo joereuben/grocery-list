@@ -5,15 +5,23 @@ import "./App.css";
 import DisplayArea from "./DisplayArea";
 import InputArea from "./InputArea";
 
+const LS = "LocalStorage"
 const uid = function () {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
+
+function getStoredList() {
+  let list = localStorage.getItem(LS)
+  console.log(list)
+  if(list)  return JSON.parse(list)
+  else return []
+}
 
 export const UserContext = createContext()
 
 function App() {
   const [text, setText] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getStoredList());
   const [alert, setAlert] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isAdded, setIsAdded] = useState(true);
@@ -84,6 +92,13 @@ function App() {
       clearTimeout(to);
     };
   }, [alert]);
+
+  useEffect(() => {  
+    localStorage.setItem(LS, JSON.stringify(list))
+    
+  }, [list]);
+
+  
 
   return (
     <UserContext.Provider value={list}>
