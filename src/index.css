@@ -12,6 +12,10 @@ body {
 h1{
   margin: 10px 0;
 }
+a.me{
+  color: #0cadf8;
+  text-decoration: none;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

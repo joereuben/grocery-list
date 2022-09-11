@@ -112,7 +112,7 @@ function App() {
               <h1>Grocery List</h1>
               <div>
                 <code>
-                  Designed and developed by <a href="https://freecodecamp.org/reujoe" rel='noopener noreferrer' target="_blank">Joseph Amofa</a> 
+                  Designed and developed by <a href="https://freecodecamp.org/reujoe" rel='noopener noreferrer' target="_blank" className="me">Joseph Amofa</a> 
                 </code>
               </div>
               <InputArea
