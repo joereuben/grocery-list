@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
 
-import logo from "./logo.svg";
 import "./App.css";
 import DisplayArea from "./DisplayArea";
 import InputArea from "./InputArea";
@@ -110,7 +109,12 @@ function App() {
               <span>{alert && alertMessage}</span>
             </div>
             <div className="">
-              <h3>Grocery List</h3>
+              <h1>Grocery List</h1>
+              <div>
+                <code>
+                  Designed and developed by <a href="https://freecodecamp.org/reujoe" rel='noopener noreferrer' target="_blank">Joseph Amofa</a> 
+                </code>
+              </div>
               <InputArea
                 text={text}
                 updateText={updateText}

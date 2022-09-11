@@ -25,7 +25,7 @@ export default function DisplayArea({
       })}
       <div>
         <button onClick={() => deleteAll()} className="clear_btn">
-          Clear Items
+          Clear All Items
         </button>
       </div>
     </div>

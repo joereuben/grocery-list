@@ -15,9 +15,9 @@ export default function InputArea({ text, updateText, addToList, isEditing }) {
           id=""
           value={text}
           onChange={(e) => updateText(e.target.value)}
-          placeholder="e.g. Fruits"
+          placeholder="e.g. Apple"
         />
-        <button type="submit">{isEditing ? "Edit" : "Submit"}</button>
+        <button className="submit" type="submit">{isEditing ? "Edit" : "Add"}</button>
       </form>
     </div>
   );

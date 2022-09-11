@@ -9,10 +9,10 @@ export default function GroceryItem({ id, name, deleteItem, editItem }) {
       </div>
 
       <div>
-        <button className="action_btn edit" onClick={() => editItem(id)}>
+        <button className="action_btn edit" onClick={() => editItem(id)} title="Edit">
           <AiFillEdit />
         </button>
-        <button className="action_btn del" onClick={() => deleteItem(id)}>
+        <button className="action_btn del" onClick={() => deleteItem(id)} title="Delete">
           <AiFillDelete />
         </button>
       </div>
